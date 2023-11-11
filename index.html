@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Link Converter</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .converter-box {
+            border: 1px solid #000;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        .converter-box input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .converter-box button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="converter-box">
+        <input type="text" id="link-input" placeholder="Paste or type a link here...">
+        <button id="convert-button">Start Conversion</button>
+    </div>
+
+    <script>
+        document.getElementById('convert-button').addEventListener('click', function() {
+            var link = document.getElementById('link-input').value;
+            if (link) {
+                // Implement your conversion logic here
+                console.log('Link to convert:', link);
+            } else {
+                alert('Please enter a link.');
+            }
+        });
+    </script>
+</body>
+</html>
