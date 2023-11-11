@@ -43,12 +43,28 @@
         document.getElementById('convert-button').addEventListener('click', function() {
             var link = document.getElementById('link-input').value;
             if (link) {
-                // Implement your conversion logic here
-                console.log('Link to convert:', link);
+                // Create a new AJAX request
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'downloader.php', true);
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    
+                // Handle the response
+                xhr.onload = function() {
+                    if (this.status == 200) {
+                        // The request was successful, handle the response here
+                        console.log(this.responseText);
+                    } else {
+                        // There was an error, handle it here
+                        console.error('An error occurred:', this.statusText);
+                    }
+                };
+    
+                // Send the request with the link as a parameter
+                xhr.send('link=' + encodeURIComponent(link));
             } else {
                 alert('Please enter a link.');
             }
         });
-    </script>
+    </script>    
 </body>
 </html>
